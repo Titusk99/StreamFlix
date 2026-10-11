@@ -1,0 +1,67 @@
+// =============================================================================
+// COMPONENTS / NAVIGATION
+// Liens de la navbar Bootstrap, menu hamburger et menu profil.
+// =============================================================================
+
+.navbar-brand {
+  color: $primary-red;
+  font-size: $font-size-large;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: shade-color($primary-red, 10%);
+  }
+}
+
+.navbar-nav .nav-link {
+  color: rgba($text-light, 0.8);
+  font-size: $font-size-small;
+  transition: color $sf-transition;
+
+  &:hover,
+  &:focus,
+  &.active,
+  &[aria-current="page"] {
+    color: $text-light;
+  }
+
+  &[aria-current="page"] {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.navbar-toggler {
+  border-color: rgba($text-light, 0.3);
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($accent-blue, 0.6);
+  }
+}
+
+// Champ de recherche de la navbar
+.search-form .form-control {
+  background-color: $bg-overlay;
+  border-color: rgba($text-light, 0.4);
+  color: $text-light;
+  font-size: $font-size-small;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $accent-blue;
+    box-shadow: 0 0 0 0.2rem rgba($accent-blue, 0.35);
+  }
+}
+
+// Menu déroulant "Mon profil"
+.dropdown-menu {
+  --bs-dropdown-bg: #{$bg-overlay};
+  --bs-dropdown-link-active-bg: #{$primary-red};
+  border-color: rgba($text-light, 0.15);
+  backdrop-filter: blur(6px);
+}

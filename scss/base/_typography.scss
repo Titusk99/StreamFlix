@@ -1,0 +1,37 @@
+// =============================================================================
+// BASE / TYPOGRAPHY
+// =============================================================================
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.01em;
+}
+
+// Titre des rangées de films ("Tendances actuelles", …)
+.section-title {
+  font-size: $font-size-base * 1.25;
+  margin-bottom: $spacing-unit;
+
+  @include respond-to(md) {
+    font-size: $font-size-large;
+  }
+}
+
+small,
+.text-small {
+  font-size: $font-size-small;
+}
+
+// Police secondaire pour les métadonnées et mentions
+.font-secondary {
+  font-family: $font-secondary;
+}

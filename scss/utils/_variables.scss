@@ -1,0 +1,39 @@
+// =============================================================================
+// UTILS / VARIABLES
+// Charte graphique StreamFlix. Chargé en premier : ces valeurs servent aussi
+// à personnaliser Bootstrap (voir vendors/_bootstrap-custom.scss).
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Palette StreamFlix
+// -----------------------------------------------------------------------------
+$primary-red: #e50914;      // Rouge signature (boutons, logo, accents)
+$primary-dark: #221f1f;     // Fond des cartes et surfaces
+$secondary-gray: #564d4d;   // Boutons secondaires, bordures
+$text-light: #ffffff;       // Texte principal sur fond sombre
+$text-muted: #999999;       // Texte secondaire (métadonnées)
+$accent-blue: #0071eb;      // Focus clavier, liens d'information
+
+$bg-body: #141414;          // Fond général de la page
+$bg-overlay: rgba(0, 0, 0, 0.75); // Voiles sombres (navbar au scroll, modal)
+
+// -----------------------------------------------------------------------------
+// Typographie
+// -----------------------------------------------------------------------------
+$font-primary: 'Netflix Sans', 'Helvetica Neue', sans-serif;
+$font-secondary: 'Arial', sans-serif;
+$font-size-base: 16px;
+$font-size-large: 24px;
+$font-size-small: 14px;
+$font-weight-bold: 700;
+
+// -----------------------------------------------------------------------------
+// Espacements, formes et animations
+// -----------------------------------------------------------------------------
+$spacing-unit: 1rem;        // Unité de base des espacements custom
+$radius-base: 4px;          // Arrondi des boutons, cartes et champs
+$sf-transition: 0.3s ease;  // Transition commune (hover, navbar)
+$card-hover-scale: 1.05;    // Zoom des cartes au survol
+$poster-ratio: unquote("2 / 3"); // Ratio des affiches de films
+$hero-min-height: 85vh;     // Hauteur du hero sur grand écran
+$navbar-height: 68px;       // Hauteur de la navbar fixe

@@ -1,0 +1,60 @@
+// =============================================================================
+// COMPONENTS / CARDS
+// Cartes de films basées sur .card de Bootstrap.
+// =============================================================================
+
+.movie-card {
+  height: 100%;
+  overflow: hidden;
+  background-color: $primary-dark;
+  border: 1px solid rgba($secondary-gray, 0.4);
+  border-radius: $radius-base;
+  @include hover-lift;
+
+  // Affiches de tailles différentes : même ratio pour toutes
+  .card-img-top {
+    width: 100%;
+    aspect-ratio: $poster-ratio;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .card-title {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-unit * 0.5;
+    @include line-clamp(1);
+
+    @include respond-to(md) {
+      font-size: $font-size-base * 1.125;
+    }
+  }
+
+  &__metadata {
+    font-family: $font-secondary;
+    font-size: $font-size-small;
+    color: $text-muted;
+    margin-bottom: $spacing-unit * 0.5;
+
+    dd {
+      margin: 0;
+    }
+
+    // Séparateur "·" entre année, durée et note
+    > div:not(:last-child)::after {
+      content: "·";
+      margin-inline: 0.4rem;
+    }
+
+    .rating {
+      color: #f5c518;
+    }
+  }
+}
+
+// Badges de genre
+.badge-genre {
+  font-weight: 500;
+  font-size: 0.7rem;
+  background-color: rgba($secondary-gray, 0.6);
+  color: $text-light;
+}

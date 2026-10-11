@@ -1,0 +1,31 @@
+// =============================================================================
+// STREAMFLIX — FICHIER PRINCIPAL SASS (architecture 7-1)
+// Compilé vers css/style.css avec `npm run build` (ou `npm run dev` en watch).
+// L'ordre des imports compte : variables → Bootstrap → mixins → styles.
+// =============================================================================
+
+// 1. Utils : charte graphique (variables)
+@import "utils/variables";
+
+// 2. Vendors : personnalisation de Bootstrap (fonctions, variables, mixins)
+@import "vendors/bootstrap-custom";
+
+// 3. Utils : mixins StreamFlix (utilisent les mixins Bootstrap)
+@import "utils/mixins";
+
+// 4. Base
+@import "base/reset";
+@import "base/typography";
+
+// 5. Components
+@import "components/buttons";
+@import "components/cards";
+@import "components/navigation";
+
+// 6. Layout
+@import "layout/header";
+@import "layout/hero";
+@import "layout/footer";
+
+// 7. Pages
+@import "pages/home";

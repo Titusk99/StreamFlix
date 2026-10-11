@@ -1,0 +1,51 @@
+// =============================================================================
+// BASE / RESET
+// Complète le "Reboot" de Bootstrap (déjà fourni par le CDN).
+// =============================================================================
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: $navbar-height; // Les ancres ne passent pas sous la navbar
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+// Lien d'évitement : invisible tant qu'il n'a pas le focus
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: $spacing-unit;
+  z-index: $zindex-fixed + 10;
+  padding: ($spacing-unit * 0.5) $spacing-unit;
+  background: $primary-red;
+  color: $text-light;
+  border-radius: $radius-base;
+  text-decoration: none;
+
+  &:focus {
+    top: $spacing-unit;
+  }
+}
+
+// Le <main> reçoit le focus via le skip-link, sans contour disgracieux
+main:focus {
+  outline: none;
+}

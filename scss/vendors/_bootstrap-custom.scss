@@ -1,0 +1,68 @@
+// =============================================================================
+// VENDORS / BOOTSTRAP CUSTOM
+// Bootstrap 5.3 est chargé via CDN (CSS + JS) dans index.html.
+// Ici on importe uniquement les fichiers SASS de Bootstrap qui ne génèrent
+// AUCUN CSS (fonctions, variables, maps, mixins) : on profite de ses outils
+// sans dupliquer les styles du CDN, ce qui garde style.css très léger.
+// =============================================================================
+
+// 1. Fonctions Bootstrap (nécessaires avant toute surcharge de variable)
+@import "bootstrap/scss/functions";
+
+// 2. Variables Bootstrap personnalisées avec la charte StreamFlix
+$primary: $primary-red;
+$secondary: $secondary-gray;
+$info: $accent-blue;
+$dark: $primary-dark;
+
+$min-contrast-ratio: 3;               // Texte blanc accepté sur le rouge
+$font-family-sans-serif: $font-primary;
+$border-radius: $radius-base;
+$btn-font-weight: $font-weight-bold;
+$btn-padding-x: 1.5rem;
+
+$body-bg-dark: $bg-body;
+$body-color-dark: $text-light;
+$body-secondary-color-dark: $text-muted;
+$card-bg-dark: $primary-dark;
+
+// $font-size-base existe aussi dans Bootstrap, qui l'attend en rem pour ses
+// calculs : on lui donne l'équivalent (16px = 1rem) le temps de l'import,
+// puis on restaure la valeur de la charte StreamFlix.
+$sf-font-size-base: $font-size-base;
+$font-size-base: 1rem;
+
+// 3. Reste de la configuration Bootstrap (aucune sortie CSS)
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+
+$font-size-base: $sf-font-size-base;
+
+// 4. Report des variables dans les CSS custom properties de Bootstrap
+//    (le CSS du CDN lit ces --bs-* à l'exécution).
+:root,
+[data-bs-theme="dark"] {
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: #{to-rgb($primary)};
+  --bs-secondary: #{$secondary};
+  --bs-secondary-rgb: #{to-rgb($secondary)};
+  --bs-info: #{$info};
+  --bs-info-rgb: #{to-rgb($info)};
+  --bs-dark: #{$dark};
+  --bs-dark-rgb: #{to-rgb($dark)};
+  --bs-body-font-family: #{$font-family-sans-serif};
+  --bs-border-radius: #{$border-radius};
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #{$body-bg-dark};
+  --bs-body-bg-rgb: #{to-rgb($body-bg-dark)};
+  --bs-body-color: #{$body-color-dark};
+  --bs-secondary-color: #{$body-secondary-color-dark};
+  --bs-link-color: #{$text-light};
+  --bs-link-hover-color: #{$primary};
+  --bs-link-color-rgb: #{to-rgb($text-light)};
+  --bs-link-hover-color-rgb: #{to-rgb($primary)};
+}

@@ -1,0 +1,62 @@
+// =============================================================================
+// PAGES / HOME
+// Styles propres à la page d'accueil (catalogue, sections, inscription).
+// =============================================================================
+
+// Le catalogue remonte légèrement sur le dégradé du hero
+.catalogue {
+  position: relative;
+  z-index: 1;
+
+  @include respond-to(lg) {
+    margin-top: -($spacing-unit * 4);
+  }
+}
+
+// Espace libre autour des cartes pour l'effet de zoom au survol
+.content-row .row {
+  padding-block: $spacing-unit * 0.5;
+}
+
+// Sections Séries / Ma Liste
+.home-panel {
+  background-color: $primary-dark;
+  border-radius: $radius-base;
+  border-left: 4px solid $primary-red;
+}
+
+// Formulaire d'inscription
+.signup {
+  &__card {
+    max-width: 480px;
+    background-color: $bg-overlay;
+    border: 1px solid rgba($secondary-gray, 0.6);
+    border-radius: $radius-base * 2;
+  }
+
+  .form-control {
+    background-color: lighten($primary-dark, 8%);
+    border-color: $secondary-gray;
+    color: $text-light;
+
+    &:focus {
+      border-color: $accent-blue;
+      box-shadow: 0 0 0 0.2rem rgba($accent-blue, 0.35);
+    }
+  }
+
+  .form-check-input:checked {
+    background-color: $primary-red;
+    border-color: $primary-red;
+  }
+
+  .form-text {
+    color: $text-muted;
+  }
+}
+
+// Modal "Plus d'informations"
+.modal-content {
+  background-color: $primary-dark;
+  border: 1px solid rgba($secondary-gray, 0.6);
+}

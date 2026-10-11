@@ -1,0 +1,77 @@
+// =============================================================================
+// LAYOUT / HERO
+// Film à la une : image plein écran + dégradé + contenu.
+// =============================================================================
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 70vh;
+  padding-top: $navbar-height;
+  overflow: hidden;
+
+  @include respond-to(lg) {
+    min-height: $hero-min-height;
+    padding-bottom: $spacing-unit * 4; // Place pour le catalogue qui remonte
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  // Double dégradé : bas (vers le catalogue) + gauche (sous le texte)
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    @include gradient-overlay(to top);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      @include gradient-overlay(to right, #000);
+      opacity: 0.7;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+  }
+
+  &__kicker {
+    color: $primary-red;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  &__synopsis {
+    font-size: $font-size-base;
+    color: rgba($text-light, 0.9);
+    @include line-clamp(4);
+
+    @include respond-to(md) {
+      font-size: $font-size-base * 1.125;
+    }
+  }
+
+  &__metadata {
+    font-size: $font-size-small;
+    color: $text-muted;
+  }
+}

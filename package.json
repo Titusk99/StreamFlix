@@ -1,0 +1,23 @@
+{
+  "name": "streamflix",
+  "version": "1.0.0",
+  "description": "StreamFlix — plateforme de streaming (Bootstrap 5 + SASS)",
+  "private": true,
+  "scripts": {
+    "sass:build": "sass scss/style.scss css/style.css --load-path=node_modules --style=compressed --quiet-deps --silence-deprecation=import,global-builtin,color-functions,if-function",
+    "sass:watch": "sass scss/style.scss css/style.css --load-path=node_modules --watch --quiet-deps --silence-deprecation=import,global-builtin,color-functions,if-function",
+    "build": "npm run sass:build",
+    "dev": "npm run sass:watch"
+  },
+  "keywords": [
+    "streamflix",
+    "bootstrap",
+    "sass"
+  ],
+  "author": "MIchel Khauv",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.105.1"
+  }
+}

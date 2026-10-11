@@ -1,0 +1,28 @@
+// =============================================================================
+// LAYOUT / HEADER
+// Navbar fixe : transparente sur le hero, opaque après le scroll
+// (classe .is-scrolled ajoutée par js/script.js).
+// =============================================================================
+
+.site-header {
+  min-height: $navbar-height;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  transition: background-color $sf-transition, box-shadow $sf-transition;
+
+  &.is-scrolled {
+    background-color: $bg-body;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  // Menu mobile ouvert : fond opaque pour garder les liens lisibles
+  @include media-breakpoint-down(lg) {
+    &:has(.navbar-collapse.show),
+    &:has(.navbar-collapse.collapsing) {
+      background-color: $bg-body;
+    }
+
+    .navbar-collapse {
+      padding-bottom: $spacing-unit;
+    }
+  }
+}

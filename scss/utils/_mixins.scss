@@ -1,0 +1,74 @@
+// =============================================================================
+// UTILS / MIXINS
+// Mixins réutilisables pour les composants récurrents de StreamFlix.
+// =============================================================================
+
+// Media query "mobile first" basée sur les breakpoints Bootstrap.
+// Usage : @include respond-to(md) { ... }
+@mixin respond-to($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+// Effet de survol "zoom + ombre" des cartes (désactivé si l'utilisateur
+// préfère réduire les animations).
+@mixin hover-lift($scale: $card-hover-scale, $shadow-color: rgba(0, 0, 0, 0.6)) {
+  transition: transform $sf-transition, box-shadow $sf-transition;
+
+  &:hover,
+  &:focus-within {
+    transform: scale($scale);
+    box-shadow: 0 0.75rem 1.5rem $shadow-color;
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover,
+    &:focus-within {
+      transform: none;
+    }
+  }
+}
+
+// Dégradé sombre pour rendre le texte lisible au-dessus d'une image.
+@mixin gradient-overlay($direction: to top, $color: $bg-body) {
+  background: linear-gradient(
+    $direction,
+    $color 0%,
+    rgba($color, 0.85) 25%,
+    rgba($color, 0) 70%
+  );
+}
+
+// Coupe un texte après $lines lignes avec "…".
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Anneau de focus clavier visible et cohérent.
+@mixin focus-ring($color: $accent-blue) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+// Boutons aux couleurs StreamFlix, générés avec le mixin Bootstrap.
+@mixin sf-button($background, $color: $text-light) {
+  @include button-variant(
+    $background,
+    $background,
+    $color: $color,
+    $hover-background: shade-color($background, 15%),
+    $hover-border: shade-color($background, 15%),
+    $hover-color: $color,
+    $active-background: shade-color($background, 25%),
+    $active-border: shade-color($background, 25%),
+    $active-color: $color
+  );
+}

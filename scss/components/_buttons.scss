@@ -1,0 +1,38 @@
+// =============================================================================
+// COMPONENTS / BUTTONS
+// Les boutons Bootstrap (.btn-*) aux couleurs StreamFlix.
+// Le CSS du CDN compile ses couleurs en dur : on les régénère ici.
+// =============================================================================
+
+.btn {
+  font-family: $font-primary;
+  border-radius: $radius-base;
+  transition: background-color $sf-transition, border-color $sf-transition,
+    color $sf-transition, transform $sf-transition;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.btn-primary {
+  @include sf-button($primary-red);
+}
+
+.btn-secondary {
+  @include sf-button(rgba($secondary-gray, 0.85));
+}
+
+// Bouton "Lecture" façon Netflix : blanc, texte sombre
+.btn-play {
+  @include sf-button($text-light, $primary-dark);
+}
+
+.btn-outline-light:hover {
+  color: $primary-dark;
+}
+
+// Bouton "Ajouter à Ma Liste" lorsqu'il est activé
+.btn-mylist[aria-pressed="true"] {
+  @include sf-button($primary-red);
+}
