@@ -21,6 +21,7 @@
 @import "components/buttons";
 @import "components/cards";
 @import "components/navigation";
+@import "components/modal";
 
 // 6. Layout
 @import "layout/header";
@@ -29,3 +30,6 @@
 
 // 7. Pages
 @import "pages/home";
+
+// 8. Themes (thème clair activé en JS, exercice 6)
+@import "themes/light";

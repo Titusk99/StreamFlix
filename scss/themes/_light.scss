@@ -1,0 +1,72 @@
+// =============================================================================
+// THEMES / DARK & LIGHT
+// Exercice 6 (JS) : le <body> porte la classe .dark-theme par défaut.
+// Le bouton du header la retire / la remet ; sans elle, on passe en clair.
+// Le header et le hero restent sombres (texte blanc sur l'affiche).
+// =============================================================================
+
+.dark-theme {
+  background-color: $bg-body;
+  color: $text-light;
+}
+
+body:not(.dark-theme) {
+  background-color: $bg-light;
+  color: $primary-dark;
+
+  // Surfaces : fond blanc, texte sombre
+  .movie-card,
+  .home-panel,
+  .signup__card,
+  .modal-content,
+  #modal .modal-content {
+    background-color: $white;
+    color: $primary-dark;
+    border-color: rgba($secondary-gray, 0.25);
+  }
+
+  .movie-card .btn-outline-light,
+  .toggle-section {
+    @include button-outline-variant($primary-dark);
+  }
+
+  .signup .form-control {
+    background-color: $white;
+    border-color: rgba($secondary-gray, 0.5);
+    color: $primary-dark;
+  }
+
+  .text-body-secondary,
+  .movie-card__metadata,
+  .signup .form-text {
+    color: $secondary-gray !important;
+  }
+
+  // Le catalogue ne chevauche plus le hero sombre
+  .hero {
+    padding-bottom: 0;
+  }
+
+  .catalogue {
+    margin-top: 0;
+    padding-top: $spacing-unit * 2;
+  }
+
+  .site-footer {
+    color: $secondary-gray;
+    border-top-color: rgba($secondary-gray, 0.25);
+
+    h2 {
+      color: $primary-dark;
+    }
+
+    a {
+      color: $secondary-gray;
+
+      &:hover,
+      &:focus {
+        color: $primary-dark;
+      }
+    }
+  }
+}

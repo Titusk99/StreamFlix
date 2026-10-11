@@ -15,7 +15,7 @@
   }
 
   // Menu mobile ouvert : fond opaque pour garder les liens lisibles
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     &:has(.navbar-collapse.show),
     &:has(.navbar-collapse.collapsing) {
       background-color: $bg-body;

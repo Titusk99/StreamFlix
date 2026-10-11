@@ -45,6 +45,11 @@ img {
   }
 }
 
+// Exercice 1 & 4 (JS) : élément masqué
+.hidden {
+  display: none !important;
+}
+
 // Le <main> reçoit le focus via le skip-link, sans contour disgracieux
 main:focus {
   outline: none;
